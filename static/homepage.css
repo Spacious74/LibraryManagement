@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'cursive';
+}
+body{
+    background-image: url('./image/paperboat.jpg');
+    background-size: cover;
+}
+.container{
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+.button1{
+    background-color: rgb(26, 127, 241);
+    border-radius: 6px;
+    width: 260px;
+    font-size: 22px; font-weight: bolder;
+    padding: 20px;
+    font-family: 'Trebuchet MS';
+    border: solid 2px black;
+    box-shadow: 0px 10px 15px 3px black,0px 6px 0px black;
+    box-sizing: border-box;
+    margin-right: 20px;
+}
+.button1:hover{
+   background-color:  rgb(71, 141, 221);
+   color: rgb(37, 36, 36);
+}
+.button1:active{
+    box-shadow: none;
+    transform: translateY(3px);
+}
+.heading{
+    background-color: rgb(14, 26, 66);
+    color: white;
+    font-size: 45px; font-family: algerian;
+    letter-spacing: 8px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    border: solid black;
+}
+#tagline{
+    font-size: 30px;
+    letter-spacing: normal;
+    font-family: gabriola;
+}
+.panel{
+    border: solid 2px black;
+    background-color: rgba(black,0.1);
+    backdrop-filter: blur(15px);
+    padding: 25px 30px 25px 30px;
+    width: 90%;
+    margin: 40px auto ;
+    font-size: 23px;
+    text-align: justify;
+    font-family: agency fb;
+    font-weight: bold;
+    box-shadow: 0px 0px 15px 3px black;
+}
+li{
+    font-family: agency fb;
+    font-weight: bold;
+}
+.highlight{
+    color: rgb(9, 9, 90);
+    font-family: agency fb;
+}
+.login{
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(2, 2, 114);
+}
+.logins{
+    margin-left: -2%;
+    margin-right: 12%;
+}

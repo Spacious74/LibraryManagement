@@ -1,0 +1,208 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+.sidebar{
+    position: absolute;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #042331;
+    transition: all .4s ease;
+
+}
+.sidebar header{
+    font-size: 25px;
+    font-weight: 1000;
+    font-family: 'algerian';
+    color: white;
+    text-align: center; 
+    line-height: 90px;
+    background-color: #063146;
+    user-select: none;
+}
+.sidebar ul a{
+    display: block;
+    height: 100%;    
+    width: 100%;
+    line-height: 65px;
+    color: snow;
+    font-size: 20px;
+    padding-left: 20px;
+    border-top: 1px solid grey;
+    box-sizing: border-box;
+    border-bottom: 1px solid grey;
+    transition: .2s;
+    font-family: 'Pacifico','cursive';
+}
+ul li:hover a{
+    font-size: 25px; 
+    font-weight: 1000px;
+    text-shadow: 8px 8px 5px black;
+    box-shadow: 0px 0px 15px 5px white;
+   border:groove #043249 5px;
+   border-radius: 5px;
+}
+ul li:active a{
+    transform: translateY(3px);
+}
+.sidebar ul  a i{
+    margin-right: 20px;
+
+    
+}
+.sidebar .socialmedia{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    transition: .3s;
+    font-size: 25px;
+}
+.sidebar .socialmedia a{
+    color: white;
+    display: list-item;
+    text-align: left;
+    height: 40px;
+    width: 50px;
+    /* transition: .3s; */
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+}
+ .sidebar .socialmedia a:hover{
+    font-size: 30px;
+    box-shadow: 0px 0px 15px 5px white;
+    border: groove #063146 5px;
+}
+.sidebar .socialmedia a:active{
+    transform: translateY(3px);
+}
+
+        #check {
+            display: none;
+        }
+
+        label #btn,
+        label #cancel {
+            position: absolute;
+            cursor: pointer;
+            background-color: #042331;
+            border-radius: 3px;
+        }
+
+        label #btn {
+            left: 40px;
+            top: 25px;
+            font-size: 30px;
+            color: snow;
+            padding: 6px 12px;
+            transition: all .4s;
+        }
+
+        label #cancel {
+            z-index: 1111;
+            left: -210px;
+            top: 5px;
+            font-size: 20px;
+            color: #0a5275;
+            padding: 4px 9px;
+            transition: all .4s;
+        }
+
+        #cancel:hover {
+            box-shadow: 3px 3px 18px white;
+            font-size: 23px;
+            color: lightblue;
+        }
+
+        #btn:hover {
+            box-shadow: 5px 5px 15px lightblue;
+        }
+
+        #check:checked~.sidebar {
+            left: 0;
+        }
+
+        #check:checked~label #btn {
+            left: 250px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #check:checked~label #cancel {
+            left: 210px;
+        }
+        section {
+            background: grey no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            color: white;
+            transition: all .4s ease;
+        }
+
+        #check:checked~section {
+            margin-left: 250px;
+
+        }
+
+        #book{
+    color: darksalmon; margin-left: 5px;
+}
+#stack{
+    color:#3ebbfa;
+}
+#header{
+    display: grid;
+    grid-template-rows: 80px;
+    background-color: #043249;
+}
+#header .head1{
+    margin: auto;
+}
+#header .head1 h1{
+    display: inline;
+    font-family: 'Trebuchet MS';
+}
+.container{
+    width: 90%;
+    background-color: slategrey;
+    margin: 10px auto;
+    border: solid 2px black;
+    
+}
+.headingofrows{
+    background-color: rgb(1, 1, 43);
+    color: white;
+    font-family: 'Trebuchet MS';
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+}
+.row{
+    background-color: rgb(175, 172, 172);
+    padding: 15px;
+    border: solid 2px black;
+    color: black;
+    font-family: 'Trebuchet MS';
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+.scroll{
+    height: 400px;
+    overflow-y: scroll;
+    padding: 20px;
+}
+.info{
+    background-color: slategray;
+    border: 5px double black;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    width: 89%;
+}

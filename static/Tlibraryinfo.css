@@ -1,0 +1,330 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    background-color: slategrey;
+}
+.sidebar{
+    position: absolute;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #042331;
+    transition: all .4s ease;
+
+}
+.sidebar header{
+    font-size: 25px;
+    font-weight: 1000;
+    font-family: 'algerian';
+    color: white;
+    text-align: center; 
+    line-height: 90px;
+    background-color: #063146;
+    user-select: none;
+}
+.sidebar ul a{
+    display: block;
+    height: 100%;    
+    width: 100%;
+    line-height: 65px;
+    color: snow;
+    font-size: 20px;
+    padding-left: 20px;
+    border-top: 1px solid grey;
+    box-sizing: border-box;
+    border-bottom: 1px solid grey;
+    transition: .2s;
+    font-family: 'Pacifico','cursive';
+}
+ul li:hover a{
+    font-size: 25px; 
+    text-shadow: 8px 8px 5px black;
+    box-shadow: 0px 0px 15px 5px white;
+   border:groove #043249 5px;
+   border-radius: 5px;
+   transform: translate3d(40px);
+}
+ul li:active a{
+    transform: translateY(3px);
+}
+.sidebar ul  a i{
+    margin-right: 20px;
+}
+.sidebar .socialmedia{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    transition: .3s;
+    font-size: 25px;
+}
+.sidebar .socialmedia a{
+    color: white;
+    display: list-item;
+    text-align: left;
+    height: 40px;
+    width: 50px;
+    /* transition: .3s; */
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+}
+ .sidebar .socialmedia a:hover{
+    font-size: 30px;
+    box-shadow: 0px 0px 15px 5px white;
+    border: groove #063146 5px;
+}
+.sidebar .socialmedia a:active{
+    transform: translateY(3px);
+}
+#check{
+    display: none;
+}
+label #btn, label #cancel{
+    position: absolute;
+    cursor: pointer;
+    background-color: #042331;
+    border-radius: 3px;
+}
+label #btn{
+    left: 40px;
+    top: 25px;
+    font-size: 30px;
+    color: snow;
+    padding: 6px 12px;
+    transition: all .4s ;
+}
+label #cancel{
+    z-index: 1111;
+    left: -210px;
+    top: 5px;
+    font-size: 15px;
+    color: #0a5275;
+    padding: 4px 9px;
+    transition: all .4s;
+}
+#cancel:hover{
+    box-shadow: 2px 2px 15px 3px white;
+    font-size: 23px;
+    color: lightblue;
+}
+#btn:hover{
+    box-shadow: 1px 1px 20px 5px lightblue;
+}
+#check:checked ~ .sidebar{
+    left: 0;
+}
+#check:checked ~ label #btn{
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+}
+#check:checked ~ label #cancel{
+    left: 210px;
+}
+section{                            /*   Here is the section   */
+    background-position: center;
+    transition: all .4s ease;
+}
+#check:checked ~ section{
+   margin-left: 250px;
+
+}
+#header{
+    display: grid;
+    grid-template-rows: 92px;
+}
+.head1{
+    border: solid black; font-family: cursive;
+    color: white;
+    line-height: 60px;
+    font-size: 30px;
+    background-color:#063146;
+    text-align: center;
+}
+#book{
+    color: darksalmon; margin-left: 5px;
+    padding: 2px;
+}
+#stack{
+    color:#3ebbfa;
+    margin-left: 3px;
+    padding: 2px;  
+}
+.tablebox{
+    margin: 20px auto;
+    background-color: rgb(153, 151, 177);
+    box-sizing: border-box;
+    width: 90%;
+    padding: 20px;
+    border: solid 2px black;
+}
+.tablerow{
+    display: table;
+    width: 100%;
+    margin: 10px auto; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(185, 196, 209);
+    padding: 12px 0px;
+    color: #555;
+    font-size: 20px;
+    box-shadow: 0px 0px 15px 1px black;
+    color: black;
+    border: solid 2px black;
+    box-sizing: border-box;
+    padding-right: 10px;
+
+}
+.tablecell{
+    display: table-cell;
+    width: 20%;
+    text-align: center;
+    /* border-right: 1px solid black; */
+    vertical-align: middle;
+    padding: 4px 0px;
+}
+.tablehead{
+    background-color: rgb(0, 9, 48);
+    box-shadow: none;
+    font-weight: 800;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    display: table;
+    box-sizing: border-box;
+    border: solid 4px rgb(31, 32, 87);
+
+}
+.firstcell{
+    text-align: left;
+    padding: 0px 20px;
+}
+.container{
+    width: 50%;
+    display: none;
+    background-color: rgb(185, 196, 209);
+    border: solid 2px black;
+    padding: 35px 35px 35px 35px;
+    box-sizing: border-box;
+    margin: 10px auto 10px auto;
+}
+.openbutton{
+    background-color: rgb(32, 32, 32);
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    /* position: fixed; */
+    margin-left: 46%;
+    margin-top: 20px;
+}
+.openbutton:hover{
+    background-color: rgb(48, 47, 47);
+}
+.openbutton:active{
+    transform: translateY(3px);
+}
+.btn{
+    background-color: #02532b;
+    padding: 8px;
+    border: solid 1px black;
+    font-size: 22px;
+    color: white;
+    width: 200px;
+}
+.btn:hover{
+    background-color: #03773d;
+}
+.btn:active{
+    transform: translateY(3px);
+}
+.btncancel{
+    background-color: rgb(170, 4, 4);
+    padding: 8px;
+    border: solid 1px black;
+    font-size: 22px;
+    color: white;
+    width: 200px;
+}
+.btncancel:hover{
+    background-color: rgb(189, 44, 44); 
+}
+.btncancel:active{
+    transform: translateY(3px);
+}
+.inputtext{
+    width: 100%;   
+    font-size: 20px;
+    padding: 12px 20px;
+    margin-top: 8px ;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 2px  black;
+}
+.inputtext:focus{
+    background-color: rgb(186, 209, 238);
+}
+.btngroup .button{
+    background-color: darkcyan;
+    border: 2px solid black;
+    color: black;
+    padding: 10px 20px;
+    cursor: pointer;
+    /* float: left; */
+    margin-left: 10px;
+    border-radius: 3px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
+    box-shadow: 0px 6px 10px 3px black,0px 3px 0px black;
+}
+.btngroup :active{
+    transform: translateY(4px);
+    box-shadow: none;
+}
+.btngroup::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.btngroup .button:hover{
+    background-color: rgb(102, 192, 194);
+}
+.deletebutton{
+    background-color: rgb(139, 9, 9);
+    padding: 10px;
+    border: solid 2px black;
+    color: white;
+    font-size: 18px;
+    width: 75px;
+    margin:0px -1px;
+}
+.deletebutton:hover{
+    background-color: rgb(192, 14, 14);
+}
+.deletebutton:active{
+    transform: translateY(3px);
+}
+.updatebutton:active{
+    transform: translateY(2px);
+}
+.buttoncolor{
+    color: white;
+}
+.semhead{
+    background-color: darkgreen;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* margin-bottom: -20px;
+    margin-top: 30px; */
+    margin: 30px auto -20px auto;
+    color: white;
+    padding: 15px;
+    width: 33%;
+}

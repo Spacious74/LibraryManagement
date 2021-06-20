@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/static/Tlibraryinfo.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='Tlibraryinfo.css')  }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for ('static', filename='book.ico')  }}" rel="icon">
+    <script src="https://kit.fontawesome.com/b26087bd52.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Library information</title>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header><i class="fa fa-graduation-cap" aria-hidden="true"></i><strong id="book">Book</strong><strong
+                id="stack">Stack</strong></header>
+        <ul>
+            <li><a href="/mainpageofteacher"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/Tlibrary"><i class="fas fa-university"></i>Library info.</a></li>
+            <li><a href="/TStudentinfo"><i class="fas fa-info"></i>Students info.</a></li>
+            <li><a href="/tlogin"><i class="fa fa-sign-out"></i>Signout</a></li>
+            <li><a href="/setting"><i class="fas fa-user-cog"></i>Setting</a></li>
+            <li><a href="/about"><i class="fas fa-address-card"></i>About</a></li>
+        </ul>
+        <div class="socialmedia">
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <a href=""> <i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+    <header id="header">
+        <div class="head1">
+            <span>Library information</span>
+        </div>
+    </header>
+    <section>
+
+      <button class="openbutton" onclick="openform()">Add Books</button>
+      <div class="container" id="myForm">
+        <form method="POST" action="/Tlibrary">
+          <div class="name">
+                <h2>Book name</h2>
+                <input type="text" class="inputtext" placeholder="Book name " name="bookname">                 
+            </div>
+            <div class="name">
+                <h2>Author </h2>
+                <input type="text" class="inputtext" placeholder="Author name or Publisher's name" name="author">                 
+            </div>
+            <div class="name">
+                <h2>No. of books </h2>
+                <input type="number" class="inputtext" min="1"  placeholder="How many books you want to add ?" name="numberofbooks">                 
+            </div>
+            <div class="name">
+              <h2>Semester </h2>
+              <input type="number" class="inputtext" min="1"  max="6" placeholder=" Which Semester ? " name="semester">                 
+          </div>
+            <button type="submit" class="btn">Add </button>
+            <button type="button" class="btncancel" onclick="closeform()">Close</button>
+        </form>
+      </div>
+
+      <script>
+        function openform() {
+          document.getElementById("myForm").style.display = "block";
+        }
+        
+        function closeform() {
+          document.getElementById("myForm").style.display = "none";
+        }
+      </script>
+
+<!-- ____________________LOGIC OF SITE__________________________________ -->
+
+      <!-- ___________________________________________ First semester books _______________________________________________________ -->
+      <div class="semhead"><center><h1>1st Semester</h1></center></div>
+      <div class="tablebox">
+        <div class="tablerow tablehead">
+          <div class="tablecell firstcell">
+            <p>Book Name</p>
+          </div>
+          <div class="tablecell">
+            <p>Author</p>
+          </div>
+          <div class="tablecell">
+            <p>Semester</p>
+          </div>
+          <div class="tablecell">
+            <p>No. of books</p>
+          </div>
+          <div class="tablecell">
+            <p>Action</p>
+          </div>
+        </div>
+        {% if book|length == 0 %}
+          <h1><center>No Books in Library Add some Books </center></h1>
+          {% else %}
+          {% for book in book  %}
+            {% if book.semester|int==1 %}
+              <div class="tablerow">
+              <div class="tablecell firstcell">
+                <p>{{book.bookname}}</p>
+              </div>
+              <div class="tablecell">
+                <p>{{book.author}}</p>
+              </div>
+              <div class="tablecell">
+                <p>{{book.semester}}</p>
+              </div>
+              <div class="tablecell">
+                <p>
+                  {{book.numberofbooks}}</p>
+              </div>
+                <div class="tablecell">
+                <button class="deletebutton"><a href="/delete/{{book.id}}" type="button" class="buttoncolor">Delete</a></button>
+              </div>
+              </div>
+              {% endif %}
+        {% endfor %}
+        {% endif %}
+      </div>
+
+       <!-- ___________________________________________ Second semester books _______________________________________________________ -->
+       <div class="semhead"><center><h1>2nd Semester</h1></center></div>
+       <div class="tablebox">
+        <div class="tablerow tablehead">
+          <div class="tablecell firstcell">
+            <p>Book Name</p>
+          </div>
+          <div class="tablecell">
+            <p>Author</p>
+          </div>
+          <div class="tablecell">
+            <p>Semester</p>
+          </div>
+          <div class="tablecell">
+            <p>No. of books</p>
+          </div>
+          <div class="tablecell">
+            <p>Action</p>
+          </div>
+        </div>
+        {% if book|length == 0 %}
+          <h1><center>No Books in Library</center></h1>
+          {% else %}
+          {% for book in book  %}
+          {% if book.semester|int==2 %}
+          <div class="tablerow">
+          <div class="tablecell firstcell">
+            <p>{{book.bookname}}</p>
+          </div>
+          <div class="tablecell">
+            <p>{{book.author}}</p>
+          </div>
+          <div class="tablecell">
+            <p>{{book.semester}}</p>
+          </div>
+          <div class="tablecell">
+            <p>{{book.numberofbooks}}</p>
+          </div>
+          <div class="tablecell">
+            <button class="deletebutton"><a href="/delete/{{book.id}}" type="button" class="buttoncolor">Delete</a></button>
+           
+          </div>
+        </div>
+          {% endif %}
+        {% endfor %}
+        {% endif %}
+      </div>
+
+ <!-- ___________________________________________ Third semester books _______________________________________________________ -->
+ <div class="semhead"><center><h1>3rd Semester</h1></center></div>
+    <div class="tablebox">
+      <div class="tablerow tablehead">
+        <div class="tablecell firstcell">
+          <p>Book Name</p>
+        </div>
+        <div class="tablecell">
+          <p>Author</p>
+        </div>
+        <div class="tablecell">
+          <p>Semester</p>
+        </div>
+        <div class="tablecell">
+          <p>No. of books</p>
+        </div>
+        <div class="tablecell">
+          <p>Action</p>
+        </div>
+      </div>
+      {% if book|length == 0 %}
+        <h1><center>No Books in Library</center></h1>
+        {% else %}
+        {% for book in book  %}
+        {% if book.semester|int==3 %}
+        <div class="tablerow">
+        <div class="tablecell firstcell">
+          <p>{{book.bookname}}</p>
+        </div>
+        <div class="tablecell">
+          <p>{{book.author}}</p>
+        </div>
+        <div class="tablecell">
+          <p>{{book.semester}}</p>
+        </div>
+        <div class="tablecell">
+          <p>{{book.numberofbooks}}</p>
+        </div>
+        <div class="tablecell">
+          <button class="deletebutton"><a href="/delete/{{book.id}}" type="button" class="buttoncolor">Delete</a></button>
+         
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+    </div>
+
+     <!-- ___________________________________________ Fourth semester books _______________________________________________________ -->
+     <div class="semhead"><center><h1>4th Semester</h1></center></div>
+     <div class="tablebox">
+      <div class="tablerow tablehead">
+        <div class="tablecell firstcell">
+          <p>Book Name</p>
+        </div>
+        <div class="tablecell">
+          <p>Author</p>
+        </div>
+        <div class="tablecell">
+          <p>Semester</p>
+        </div>
+        <div class="tablecell">
+          <p>No. of books</p>
+        </div>
+        <div class="tablecell">
+          <p>Action</p>
+        </div>
+      </div>
+      {% if book|length == 0 %}
+        <h1><center>No Books in Library</center></h1>
+        {% else %}
+        {% for book in book  %}
+        {% if book.semester|int==4 %}
+        <div class="tablerow">
+        <div class="tablecell firstcell">
+          <p>{{book.bookname}}</p>
+        </div>
+        <div class="tablecell">
+          <p>{{book.author}}</p>
+        </div>
+        <div class="tablecell">
+          <p>{{book.semester}}</p>
+        </div>
+        <div class="tablecell">
+          <p>{{book.numberofbooks}}</p>
+        </div>
+        <div class="tablecell">
+          <button class="deletebutton"><a href="/delete/{{book.id}}" type="button" class="buttoncolor">Delete</a></button>
+         
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+    </div>
+ <!-- ___________________________________________ Fifth semester books _______________________________________________________ -->
+ <div class="semhead"><center><h1>5th Semester</h1></center></div>
+ <div class="tablebox">
+  <div class="tablerow tablehead">
+    <div class="tablecell firstcell">
+      <p>Book Name</p>
+    </div>
+    <div class="tablecell">
+      <p>Author</p>
+    </div>
+    <div class="tablecell">
+      <p>Semester</p>
+    </div>
+    <div class="tablecell">
+      <p>No. of books</p>
+    </div>
+    <div class="tablecell">
+      <p>Action</p>
+    </div>
+  </div>
+  {% if book|length == 0 %}
+    <h1><center>No Books in Library</center></h1>
+    {% else %}
+    {% for book in book  %}
+    {% if book.semester|int==5 %}
+    <div class="tablerow">
+    <div class="tablecell firstcell">
+      <p>{{book.bookname}}</p>
+    </div>
+    <div class="tablecell">
+      <p>{{book.author}}</p>
+    </div>
+    <div class="tablecell">
+      <p>{{book.semester}}</p>
+    </div>
+    <div class="tablecell">
+      <p>{{book.numberofbooks}}</p>
+    </div>
+    <div class="tablecell">
+      <button class="deletebutton"><a href="/delete/{{book.id}}" type="button" class="buttoncolor">Delete</a></button>
+     
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+</div>
+
+ <!-- ___________________________________________ Sixth semester books _______________________________________________________ -->
+ <div class="semhead"><center><h1>6th Semester</h1></center></div>
+ <div class="tablebox">
+  <div class="tablerow tablehead">
+    <div class="tablecell firstcell">
+      <p>Book Name</p>
+    </div>
+    <div class="tablecell">
+      <p>Author</p>
+    </div>
+    <div class="tablecell">
+      <p>Semester</p>
+    </div>
+    <div class="tablecell">
+      <p>No. of books</p>
+    </div>
+    <div class="tablecell">
+      <p>Action</p>
+    </div>
+  </div>
+  {% if book|length == 0 %}
+    <h1><center>No Books in Library</center></h1>
+    {% else %}
+    {% for book in book  %}
+    {% if book.semester|int==6 %}
+    <div class="tablerow">
+    <div class="tablecell firstcell">
+      <p>{{book.bookname}}</p>
+    </div>
+    <div class="tablecell">
+      <p>{{book.author}}</p>
+    </div>
+    <div class="tablecell">
+      <p>{{book.semester}}</p>
+    </div>
+    <div class="tablecell">
+      <p>{{book.numberofbooks}}</p>
+    </div>
+    <div class="tablecell">
+      <button class="deletebutton"><a href="/delete/{{book.id}}" type="button" class="buttoncolor">Delete</a></button>
+     
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+</div>
+    </section>
+</body>
+</html>

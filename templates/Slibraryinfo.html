@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b26087bd52.js" crossorigin="anonymous"></script>
+    <link href="./image/business_library_books_book_file_2328.ico" rel="icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='Slibraryinfo.css')  }}">
+    <link href="{{ url_for ('static', filename='book.ico')  }}" rel="icon">
+    <title>Slibraryinfo</title>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header ><i class="fa fa-graduation-cap" aria-hidden="true"></i><strong id="book">Book </strong><strong id="stack">Stack</strong></header>
+        <ul>
+            <li><a href="/mainpageofstudent"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/Smybook"><i class="fas fa-book"></i>My Books</a></li>
+            <li><a href="/library"><i class="fas fa-info"></i>Library info.</a></li>
+            <li><a href="/login"><i class="fa fa-sign-out"></i>Signout</a></li>
+            <li><a href="/setting"><i class="fas fa-user-cog"></i>Setting</a></li>
+            <li><a href="/about"><i class="fas fa-address-card"></i>About</a></li>
+        </ul>
+        <div class="socialmedia">
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <a href=""> <i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+    <header>
+            <div class="heading"><h1>Books Available in library</h1></div>
+    </header>
+    <section>
+        <br><br>
+        <div class="semester">
+            <p>Books Available in semester {{current_user.semester}} in {{current_user.classed}} library</p>
+        </div><br>
+        <center><u><i> Please! Fill up the information correctly otherwise there is problem in issuing your book.</i></u></center>
+        <button class="openbutton" onclick="openform()">Issue Book</button>
+        <div class="container" id="myForm">
+          <form method="POST" action="/library">
+            <div class="name">
+                  <h2>Student Name</h2>
+                  <input type="text" class="inputtext" placeholder="Your full name " name="studentname">                 
+              </div>
+              <div class="name">
+                  <h2>Book Name </h2>
+                  <input type="text" class="inputtext" placeholder="Write book name " name="bname">                 
+              </div>
+              <div class="name">
+                  <h2>Semester </h2>
+                  <input type="number" class="inputtext" placeholder="Write your semester" name="studsem" min="1" max="{{current_user.semester}}">                 
+              </div>
+              <div class="name">
+                <h2>UniqueID </h2>
+                <input  class="inputtext" placeholder=" *Write your UniqueID correctly" name="suniquecode">                 
+            </div>
+              <button type="submit" class="btn">Issue </button>
+              <button type="button" class="btncancel" onclick="closeform()">Close</button>
+          </form>
+        </div>
+  
+        <script>
+          function openform() {
+            document.getElementById("myForm").style.display = "block";
+          }
+          
+          function closeform() {
+            document.getElementById("myForm").style.display = "none";
+          }
+        </script>
+        <br>
+        <center><h3>UniqueID : {{current_user.studentuniquecode}}</h3></center>
+        <div class="tablebox">
+            <div class="tablerow tablehead">
+              <div class="tablecell firstcell">
+                <p>Book Name</p>
+              </div>
+              <div class="tablecell">
+                <p>Author</p>
+              </div>
+              <div class="tablecell">
+                <p>Semester</p>
+              </div>
+              <div class="tablecell">
+                <p>No. of books</p>
+              </div>
+            </div>
+            {% if book|length == 0 %}
+            <h1><center>No Books in Library</center></h1>
+            {% else %}
+            {% for book in book %}  
+            {% if current_user.semester|int == book.semester|int %}
+                    <div class="tablerow">
+                    <div class="tablecell firstcell">
+                        <p>{{book.bookname}}</p>
+                    </div>
+                    <div class="tablecell">
+                        <p>{{book.author}}</p>
+                    </div>
+                    <div class="tablecell">
+                        <p>{{book.semester}}</p>
+                    </div>
+                    <div class="tablecell">
+                        <p>{{book.numberofbooks}}</p>
+                    </div>
+                    </div>
+                    {% endif %}
+            {% endfor %}
+            {% endif %}
+          </div>
+    </section>
+</body>
+</html>

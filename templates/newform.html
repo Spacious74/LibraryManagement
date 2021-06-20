@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='newform.css')  }}">
+    <link href="{{ url_for ('static', filename='book.ico')  }}" rel="icon">
+    <link rel="stylesheet" href="/static/newform.css">
+    <title>Registration form</title>
+
+<body>
+    <div class="panel">
+        <div class="reg"><h1>Register yourself</h1></div>
+        <form method="POST" action="/register">
+            <div class="name">
+                <h2>Full Name</h2>
+                <input type="text" class="inputtext1" placeholder="First Name" name="firstname" required>     
+                <input type="text" class="inputtext1" placeholder="Middle Name" name="middlename">
+                <input type="text" class="inputtext1" placeholder="Last Name" name="lastname" required> 
+            </div>
+            <div class="name">
+                <h2>Class </h2>
+                <input type="text" class="inputtext" placeholder="BCA or BBA or BSc. " name="course" required>                 
+            </div>
+            <div class="name">
+                <h2>Semester </h2>
+                <input type="number" class="inputtext" placeholder="1, 2, 3, 4, 5 or 6" min="1" max="6" name="semester" required>                 
+            </div>
+            <div class="name">
+                <h2>NadId </h2>
+                <input  class="inputtext" placeholder="For verification" name="nad" required><hr color="black">
+                <label for="nad">Forget you NadID ? <a href="https://nad.ndml.in/NAD/login.html">Login NadID</a></label>            
+            </div>
+            <div class="name">
+                <h2>College Name</h2>
+                <input type="text" class="inputtext" placeholder="Enter college name" name="collegename" required>                 
+            </div>
+            <div class="name">
+                <h2>Email </h2>
+                <input type="email" class="inputtext" placeholder="example@gmail.com" name="email"> <hr color="black">
+                <label for="email" >Important information will send to your email</label>             
+            </div>
+            <div class="name">
+                <h2>Phone no. </h2>
+                <input type="tel" class="inputtext" placeholder="Contact no." name="phone" required>                 
+            </div>
+            <div class="name">
+                <h2>Set Password </h2>
+                <input type="password" class="inputtext" placeholder="Set strong password" name="password" id="myInput" required> <hr color="black">
+                <label for="password"> <input type="checkbox" onclick="myFunction()" class="checkbox">Show Password <span class="advise"><i>Please remember the password or save it</i> </span></label>
+                 <script>
+                     function myFunction() {
+                   var x = document.getElementById("myInput");
+                   if (x.type === "password") {
+                     x.type = "text";
+                   } else {
+                     x.type = "password";
+                   }
+                 }
+                 </script>  
+            </div>
+            <div class="name">
+                <h2>Generate UniqueId </h2>
+                <input  class="inputtext" placeholder="This is Id. is very Important for book issue process" name="uniqueid" required><hr color="black">  
+                               
+                <label for="inputtext" >#How to generate = Starting two letters of your name in Capital letters + Four secret digits of your own + last 4 digits of your phone number. <hr color="black">
+                    Don't consider '+' sign in Id generation process <hr color="black">
+                    Don't reveal it among Students.It is your secret book issue Id.</label>   
+            </div>
+            <div class="name">
+                <h2></h2><br>
+                <input type="submit" id="button" value="Submit">                 
+            </div>
+        </form>
+    </div>
+</body>
+</html>

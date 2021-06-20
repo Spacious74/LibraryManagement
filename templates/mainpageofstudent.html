@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/mainpageofstudent.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='mainpageofstudent.css')  }}">
+    <link href="{{ url_for ('static', filename='book.ico')  }}" rel="icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header ><i class="fa fa-graduation-cap" aria-hidden="true"></i><strong id="book">Book </strong><strong id="stack">Stack</strong></header>
+        <ul>
+            <li><a href="/mainpageofstudent"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/Smybook"><i class="fas fa-book"></i>My Books</a></li>
+            <li><a href="/library"><i class="fas fa-info"></i>Library info.</a></li>
+            <li><a href="/login"><i class="fa fa-sign-out"></i>Signout</a></li>
+            <li><a href="/setting"><i class="fas fa-user-cog"></i>Setting</a></li>
+            <li><a href="/about"><i class="fas fa-address-card"></i>About</a></li>
+        </ul>
+        <div class="socialmedia">
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <a href=""> <i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+    <section>
+        <header id="header">
+            <div class="head1">
+             <div id="profile">   <h1>Student Profile</h1></div>
+            </div>
+        </header>
+        <main>
+            <div class="div2">
+                <h1>Student info.</h1><hr>
+                <ul>
+                    <li><span class="name">Name : </span><span class="value">{{current_user.firstname}} {{current_user.middlename}} {{current_user.lastname}}</span></li>
+                    <li><span class="name">Class : </span><span class="value">{{current_user.course}}</span></li>
+                    <li><span class="name">Semester : </span><span class="value">{{current_user.semester}}</span></li>
+                    <li><span class="name">NadID : </span><span class="value">{{current_user.nad}}</span></li>
+                    <li><span class="name">UniqueId : </span><span class="value">{{current_user.studentuniquecode}}</span></li>
+                </ul>
+            </div>
+            <div class="div3"> <ul>
+                <h1>Library detail</h1><hr>
+                <ul>
+                <li><span class="name">Library name : </span><span class="value">BCA library</span></li>
+                <li><span class="name">Librarian name : </span><span class="value">Mr. Tony Stark</span></li>
+                <li><span class="name">Librarian Id : </span><span class="value">BCA1234</span></li>
+                <li><span class="name">Timing : </span><span class="value">10:30am-12:30pm</span></li>
+            </ul></div>
+        </main>
+    </section>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b26087bd52.js" crossorigin="anonymous"></script>
+    <link href="{{ url_for ('static', filename='book.ico')  }}" rel="icon">
+    <link rel="stylesheet" href="/static/Smybook.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='Smybook.css')}}">
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header><i class="fa fa-graduation-cap" aria-hidden="true"></i><strong id="book">Book </strong><strong
+                id="stack">Stack</strong></header>
+        <ul>
+            <li><a href="/mainpageofstudent"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/Smybook"><i class="fas fa-book"></i>My Books</a></li>
+            <li><a href="/library"><i class="fas fa-info"></i>Library info.</a></li>
+            <li><a href="/login"><i class="fa fa-sign-out"></i>Signout</a></li>
+            <li><a href="/setting"><i class="fas fa-user-cog"></i>Setting</a></li>
+            <li><a href="/about"><i class="fas fa-address-card"></i>About</a></li>
+        </ul>
+        <div class="socialmedia">
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <a href=""> <i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+    <section>
+        <header id="header">
+            <div class="head1">
+                <h1>My books</h1>
+            </div>
+        </header>
+       <div class="info">
+            <span style="color: black; font-size: 25px; font-weight: 600; font-family: 'Trebuchet MS';"> Name :</span> <span style="font-size: 23px; color: black; font-family: 'Trebuchet MS';">{{current_user.firstname}}{{current_user.middlename}} {{current_user.lastname}}</span> <br>
+            <span style="color: black; font-size: 25px; font-weight: 600; font-family: 'Trebuchet MS';"> Your uniquecode :</span> <span style="font-family: 'Trebuchet MS'; font-size: 23px;  color: black;" >{{current_user.studentuniquecode}}</span> 
+        </div>
+        <div class="container">
+            <div class="headingofrows">
+                Your Issued Books
+            </div>
+
+            <div class="scroll">
+                {% if hasissued|length == 0 %}
+                <h1>
+                    <center>Not any Book issued by you</center>
+                </h1>
+                {% else %}
+                {% for h in hasissued %}
+                {% if current_user.studentuniquecode == h.studentuniquecode %}
+                <h4 class="row"> <span style="color: darkblue;">{{h.issuedbookname}}</span> of code {{h.bcode}} issued to you. <br><span style="color: darkgreen;">Issue date :</span>
+                    {{h.bissuedate}} and <span style="color: darkgreen;">Return date:</span> {{h.breturndate}}</h4>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

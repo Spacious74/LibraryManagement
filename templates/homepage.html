@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='homepage.css')  }}">
+    <link href="{{ url_for ('static', filename='book.ico')  }}" rel="icon">
+    <link rel="stylesheet" type="text/css" href="/static/homepage.css">
+    <title>Welcome page</title>
+</head>
+<body>
+    <div class="heading">Book Stack <span id="tagline">manage your bookshelf</span></div>
+    <div class="panel">
+        <ul>
+            <li> We are book stack and we are here to innovate library. We are creating the procedure of book issuing
+                more reliable and easier.
+            <hr color="black"><br>
+            <li>This site allows a library to keep track of all its books, and also manage its members.
+            <hr color="black"><br>
+            <li>Some of the services offered by Book Stack includes
+                <span class="highlight">Book requests by the members of the library
+                    ,Denial or Issuence of the requests by the Librarian </span> and all management at anytime and
+                anywhere.
+            <hr color="black"><br>
+            <li>Librarian have to maintain only the silence of the library.
+            <hr color="black"><br>
+            <li>Students have to focus on smart investment on studies from the account of library.
+            <hr color="black">
+        </ul>
+    </div>
+    <div class="container">
+        <a href="/register"><input type="button" value="Register as Student" class="button1 " ></a>
+        <a href="/teacherform"><input type="button" value="Register as Librarian" class="button1"></a>
+        <!-- <a href="/login"><input type="button" value="Login" class="button1"></a>/ -->
+        <div class="login">
+            <label for="button1" class="logins"><a href="/login">Student Login</a></label>
+            <label for="button1" class="logint"><a href="/tlogin">Teacher Login</a></label>
+        </div>
+    </div>
+</body>
+</html>

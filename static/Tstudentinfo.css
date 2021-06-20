@@ -1,0 +1,357 @@
+*{padding: 0;
+margin: 0;
+list-style: none;
+text-decoration: none;
+}
+body{
+    background-color: lightblue;
+}
+.sidebar{
+position: fixed;
+left: -250px;
+width: 250px;
+height: 100%;
+background-color: #042331;
+transition: all .4s ease;
+
+}
+.sidebar header{
+font-size: 25px;
+font-weight: 1000;
+font-family: 'algerian';
+color: white;
+text-align: center; 
+line-height: 90px;
+background-color: #063146;
+user-select: none;
+}
+.sidebar ul a{
+display: block;
+height: 100%;    
+width: 100%;
+line-height: 65px;
+color: snow;
+font-size: 20px;
+padding-left: 20px;
+border-top: 1px solid grey;
+box-sizing: border-box;
+border-bottom: 1px solid grey;
+transition: .2s;
+font-family: 'Pacifico','cursive';
+}
+ul li:hover a{
+font-size: 25px; 
+text-shadow: 8px 8px 5px black;
+box-shadow: 0px 0px 15px 5px white;
+border:groove #043249 5px;
+border-radius: 5px;
+transform: translate3d(40px);
+}
+ul li:active a{
+transform: translateY(3px);
+}
+.sidebar ul  a i{
+margin-right: 20px;
+}
+.sidebar .socialmedia{
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+display: flex;
+transition: .3s;
+font-size: 25px;
+}
+.sidebar .socialmedia a{
+color: white;
+display: list-item;
+text-align: left;
+height: 40px;
+width: 50px;
+/* transition: .3s; */
+text-align: center;
+padding-top: 10px;
+margin-bottom: 60px;
+border-radius: 5px;
+}
+.sidebar .socialmedia a:hover{
+font-size: 30px;
+box-shadow: 0px 0px 15px 5px white;
+border: groove #063146 5px;
+}
+.sidebar .socialmedia a:active{
+transform: translateY(3px);
+}
+#check{
+display: none;
+}
+label #btn, label #cancel{
+position: absolute;
+cursor: pointer;
+background-color: #042331;
+border-radius: 3px;
+}
+label #btn{
+left: 40px;
+top: 25px;
+font-size: 30px;
+color: snow;
+padding: 6px 12px;
+transition: all .4s ;
+}
+label #cancel{
+z-index: 1111;
+left: -210px;
+top: 5px;
+font-size: 15px;
+color: #0a5275;
+padding: 4px 9px;
+transition: all .4s;
+}
+#cancel:hover{
+box-shadow: 2px 2px 15px 3px white;
+font-size: 23px;
+color: lightblue;
+}
+#btn:hover{
+box-shadow: 1px 1px 20px 5px lightblue;
+}
+#check:checked ~ .sidebar{
+left: 0;
+}
+#check:checked ~ label #btn{
+left: 250px;
+opacity: 0;
+pointer-events: none;
+}
+#check:checked ~ label #cancel{
+left: 210px;
+}
+#book{
+    color: darksalmon; margin-left: 5px;
+    padding: 2px;
+}
+#stack{
+    color:#3ebbfa;
+    margin-left: 3px;
+    padding: 2px;
+  
+}
+section{                            /*   Here is the section   */
+background-position: cover;
+transition: all .4s ease;
+padding-bottom: 20px;
+}
+#check:checked ~ section{
+margin-left: 250px;
+}
+.heading{
+    display: grid;
+    font-size: 30px;  font-weight: 600;
+    text-align: center;
+    padding: 20px;
+    background-color: #063146;
+    color: white;
+    font-family: 'Trebuchet MS';
+}
+.container{
+    background-color: slategrey;
+    padding: 20px;
+    width: 90%;
+    height: 450px;
+    border: solid 2px black;
+    border-radius: 5px;
+    margin: 10px auto 30px auto;
+    display: none;
+}
+.container2{
+    background-color: slategrey;
+    padding: 20px;
+    width: 90%;
+    height: 450px;
+    border: solid 2px black;
+    border-radius: 5px;
+    margin: 10px auto 30px auto;
+}
+.container3{
+    width: 50%;
+    display: none;
+    background-color: rgb(185, 196, 209);
+    border: solid 2px black;
+    padding: 35px 35px 35px 35px;
+    box-sizing: border-box;
+    margin: 10px auto 10px auto;
+}
+.inputtext{
+    width: 100%;   
+    font-size: 20px;
+    padding: 12px 20px;
+    margin-top: 8px ;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 2px  black;
+}
+.inputdate{
+    width: 40%;   
+    font-size: 20px;
+    padding: 12px 20px;
+    margin-top: 8px ;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 2px  black;
+}
+.inputtext:focus{
+    background-color: rgb(186, 209, 238);
+}
+.headingofrows{
+    background-color: rgb(2, 2, 58);
+    color: white;
+    padding: 20px;   border: solid 2px black;
+    border-radius: 50px;
+    padding-top: 25px;
+    font-size: 27px;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Trebuchet MS';
+    text-shadow: 0px 0px 20px lightblue;
+    box-shadow: 0px 0px 15px 3px ;
+}
+.row{
+    background-color: #043249;
+    padding: 15px;
+    border: solid 2px black;
+    font-size: 25px;    font-family: 'Trebuchet MS';
+    color: white;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 100%;
+}
+.rowofstudent{
+    background-color: #043249;
+    padding: 15px;
+    border: solid 2px black;
+    font-size: 20px;    font-family: 'Trebuchet MS';
+    color: white;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.highlight{
+    font-size: 25px;
+    color: dodgerblue;
+}
+.highlight1{
+    font-size: 25px;
+    color: orange;
+}.highlight2{
+    font-size: 25px;
+    color:cadetblue ;
+}
+.high1{
+    color: lightgreen;
+}
+.button{
+    padding: 20px;
+    margin-left: 27px;
+    box-sizing: border-box;
+}
+.enrollbutton{
+    padding: 10px;
+    font-size: 1.4rem;
+    width: 30%;
+    margin-right: 10px;
+    background-color: darkgreen;
+    border: solid 2px black; border-radius: 4px;
+    color: snow;box-shadow: 0px 0px 10px 3px black , 0px 3px 0px black;
+}
+.enrollbutton:active{
+    transform: translateY(3px);
+    box-shadow: none;
+}
+.btncancel{
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    background-color: red;
+    border: solid 2px black;  border-radius: 47%;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 65%;
+    box-shadow: 0px 0px 10px 3px black , 0px 3px 0px black;
+}
+.btncancel:active{
+    transform: translateY(3px);
+    box-shadow: none;
+}
+.denybutton{
+    padding: 8px;
+    background-color: rgb(247, 8, 8);
+    border: solid 2px black;
+    box-sizing: border-box;
+    float: right;
+}
+
+.buttoncolor{
+    font-family: 'Trebuchet MS';
+    color: snow;
+    font-weight: 600 ;
+    font-size: 17px
+}
+.scroll{
+    height: 300px;
+    padding: 15px;
+    background-color: slategray;
+    overflow-y: scroll;
+}
+.scroll2{
+    height: 300px;
+    padding: 15px;
+    background-color: slategray;
+    overflow-y: scroll;
+}
+.issuebook{
+    background-color: darkgreen;
+    padding: 8px;
+    border: solid 2px black;
+    box-sizing: border-box;
+    color: snow;
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+}
+.issuebook:hover{
+    background-color: rgb(1, 134, 1);
+}
+.issuebook:active{
+    transform: translateY(3px);
+}
+.closeissuebook{
+    padding: 8px;
+    background-color: red;
+    border: solid 2px black;
+    box-sizing: border-box;
+    color: white;
+    font-family: 'Trebuchet MS';
+    font-size: 20px;
+}
+.closeissuebook:hover{
+    background-color: rgb(248, 96, 96);
+}
+.closeissuebook:active{
+    transform: translateY(3px);
+}
+.bissuedate{
+    margin-right: 28%;
+    font-family: 'Trebuchet MS';
+    font-weight: 600;
+}
+.breturndate{
+     font-family: 'Trebuchet MS';
+    font-weight: 600;
+}
+/* .button{
+    margin-left: 27%;
+} */

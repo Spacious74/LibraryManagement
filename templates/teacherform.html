@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for ('static', filename='book.ico')  }}" rel="icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='teacherform.css')  }}">
+    <title>Teacher form</title>
+</head>
+<body>
+    <div class="panel">
+        <div class="reg"><h1>Register yourself<span class="as_a"> as a librarian</span></h1></div>
+        <form method="POST" action="/teacherform">
+            <div class="name">
+                <h2>Name </h2>
+                <input type="text" class="inputtext" placeholder="Full name" name="teachername">                 
+            </div>
+            <div class="name">
+                <h2>Course </h2>
+                <input type="text" class="inputtext" placeholder="BCA or BBA or BSc. " name="course">                 
+            </div>
+            <div class="name">
+                <h2>Email </h2>
+                <input type="email" class="inputtext" placeholder="example@gmail.com  (*for students queries) " name="temail"><hr>             
+            </div>
+            <div class="name">
+                <h2>Phone no. </h2>
+                <input type="tel" class="inputtext" placeholder="Contact no." name="tphone">                 
+            </div>
+            <div class="name">
+                <h2>Set Password</h2>
+                <input type="password" class="inputtext" placeholder="Set strong password" id="myInput" name="tpassword">  <hr>
+               <label for="password"> <input type="checkbox" onclick="myFunction()" class="checkbox">Show Password <span class="advise">Please remember the password or save it </span></label>
+                <script>
+                    function myFunction() {
+                  var x = document.getElementById("myInput");
+                  if (x.type === "password") {
+                    x.type = "text";
+                  } else {
+                    x.type = "password";
+                  }
+                }
+                </script>          
+            </div>
+            <div class="name">
+             <br>
+            <input type="submit" id="button" value="Submit">
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

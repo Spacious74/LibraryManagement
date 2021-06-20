@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/Tstudentinfo.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for ('static', filename='Tstudentinfo.css')}}">
+    <link href="{{ url_for ('static', filename='book.ico')  }}" rel="icon">
+    <script src="https://kit.fontawesome.com/b26087bd52.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Student information</title>
+</head>
+
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fa fa-bars" id="btn"></i>
+        <i class="fa fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header><i class="fa fa-graduation-cap" aria-hidden="true"></i><strong id="book">Book</strong>
+            <strong id="stack">Stack</strong>
+        </header>
+        <ul>
+            <li><a href="/mainpageofteacher"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="/Tlibrary"><i class="fas fa-university"></i>Library info.</a></li>
+            <li><a href="/TStudentinfo"><i class="fas fa-info"></i>Students info.</a></li>
+            <li><a href="/tlogin"><i class="fa fa-sign-out"></i>Signout</a></li>
+            <li><a href="/setting"><i class="fas fa-user-cog"></i>Setting</a></li>
+            <li><a href="/about"><i class="fas fa-address-card"></i>About</a></li>
+        </ul>
+        <div class="socialmedia">
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <a href=""> <i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+    <section>
+        <header class="heading">Students Information</header>
+        <p></p>
+       <center><div class="button">
+            <button class="enrollbutton" onclick="openForm1()">Students Enrolled in Library</button>
+            <button class="enrollbutton" onclick="openForm2()">Issue book to Student</button>
+        </div></center> 
+        <div class="container" id="myform1">
+            <div class="headingofrows">
+                Students Enrolled in Library <br><center>Total students enrolled in library {{counter}}</center><button type="button" class="btncancel " onclick="closeForm1()">✘</button>
+            </div>
+            <div class="scroll">
+                <br>
+                {% if user|length == 0 %}
+                <h1><center>No Students in Library</center></h1>
+                {% else %}
+                {% for user in user %}
+                {% set counter = counter+1 %}
+                <div class="row">
+                    <div>{{user.id}}. <span class="high1">Name: </span>{{user.firstname}} {{user.middlename}}
+                        {{user.lastname}} </div>
+                    <div><span class="high1">Contact:</span> {{user.phone}} and <span class="high1">Email:</span>
+                        {{user.email}}</span></div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="container3" id="myform2">
+            <form method="POST" action="/TStudentinfo">
+                <div class="name">
+                      <h2>Student Name</h2>
+                      <input type="text" class="inputtext" placeholder="Student's full name " name="issuename">                 
+                    </div>
+                    <div class="name">
+                      <h2>Book Name </h2>
+                      <input type="text" class="inputtext" placeholder="Write book Name " name="issuedbookname">                 
+                  </div>
+                  <div class="name">
+                      <h2>Book Code </h2>
+                      <input  class="inputtext" placeholder="Write book code " name="bcode">                 
+                  </div>
+                  <div class="name">
+                    <h2>UniqueID </h2>
+                    <input  class="inputtext" placeholder=" *Write your UniqueID correctly" name="studuniquecode">                 
+                </div>
+                <div class="name">
+                    <h2>Duration </h2>
+                    <input type="date" class="inputdate"  name="bissuedate">
+                    <input type="date" class="inputdate"  name="breturndate"><br>
+                    <label class="bissuedate">Issue date </label>
+                    <label class="breturndate">Return date </label>
+                </div><br>
+                  <button type="submit" class="issuebook">Issue book</button>
+                  <button type="button" class="closeissuebook" onclick="closeForm2()">Close</button>
+              </form>
+        </div>
+        <div class="container2">
+            <div class="headingofrows">
+                Book Requested by Students
+            </div><br>
+            <div class="scroll2">
+                {% if issue|length == 0 %}
+                <h1><center>No Book requests of Students</center></h1>
+                {% else %}
+                {% for issue in issue %}
+                <div class="rowofstudent">
+                    <span class="highlight">{{issue.studentname}} </span>requested for <span
+                        class="highlight1">{{issue.bname}}</span> of semester <span
+                        class="highlight2">{{issue.studsem}}</span> <span class="highlight1">UniqueID: </span>{{issue.suniquecode}}
+                    <span class="buttoncontainer">
+                        <button class="denybutton"><a href="/deleteissue/{{issue.id}}" type="button"
+                                class="buttoncolor">Deny</a></button>
+                    </span>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <script>
+            function closeForm1() {
+                document.getElementById("myform1").style.display = "none";
+            }
+            function openForm1() {
+                document.getElementById("myform1").style.display = "block";
+            }
+            function closeForm2(){
+                document.getElementById("myform2").style.display = "none";
+            }
+            function openForm2(){
+                document.getElementById("myform2").style.display = "block";
+            }
+        </script>
+    </section>
+</body>
+
+</html>
