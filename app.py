@@ -25,8 +25,6 @@ login_manager.init_app(app)
 def load_user(user_id):
     return Form.query.get(int(user_id))
 
-
-
 @app.route("/")
 def welcome():
     return render_template("homepage.html")
@@ -129,14 +127,13 @@ class Want(db.Model):
 @app.route("/library",methods=['GET','POST'])
 def Slibraryinfo():
     __bind_key__='four'
-    if request.method=='POST':
-        studentname=request.form.get('studentname')
-        bname=request.form.get('bname')
-        studsem=request.form.get('studsem')
-        suniquecode=request.form.get('suniquecode')
-        stud = Want(studentname=studentname,bname=bname,studsem=studsem,suniquecode=suniquecode)
-        db.session.add(stud)
-        db.session.commit()
+    studentname=request.form.get('studentname')
+    bname=request.form.get('bname')
+    studsem=request.form.get('studsem')
+    suniquecode=request.form.get('suniquecode')
+    stud = Want(studentname=studentname,bname=bname,studsem=studsem,suniquecode=suniquecode)
+    db.session.add(stud)
+    db.session.commit()
     book = Book.query.all() 
     return render_template("Slibraryinfo.html",book=book)
 
